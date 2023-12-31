@@ -1,0 +1,44 @@
+% !TeX TS-program = xelatex
+% !BIB TS-program = bibtex
+
+% Full instructions available at:
+% https://github.com/pcafrica/focus-beamertheme
+
+\documentclass[numbering=progressbar]{beamer}
+\usepackage[yyyymmdd]{datetime}
+\usetheme{focus}
+
+\definecolor{main}{RGB}{55, 135, 177}
+\definecolor{text}{RGB}{60, 60, 80}
+\definecolor{background}{RGB}{255, 255, 255}
+
+\newif\ifplacelogo % create a new conditional
+\placelogotrue % set it to true
+
+
+\setbeamercovered{transparent}
+
+\title{Into the Quantum Realm:\\ On the Collapsible Polynomial Hierarchy for Promise Problems}
+\subtitle{Advance Algorithm Course}
+\author{Abolfazl Ghorbani\texorpdfstring{\\}{,} Asha Soroushpoor}
+% \titlegraphic{\includegraphics[scale=1.25]{focus-logo.pdf}}
+\titlegraphic{\includegraphics[scale=.21]{images/tu-logo-hckd2.png}}
+\logo{\ifplacelogo\includegraphics[height=1cm]{images/tu-logo-hckd2.png}\fi}
+\institute{University of Tehran}
+\date{\today}
+
+% Footline info is printed only if [numbering=fullbar].
+%\footlineinfo{Custom footline text}
+
+\begin{document}
+    \input{Beginning.tex}
+    
+    
+    % Use starred version (e.g. \section*{Section name})
+    % to disable (sub)section page.
+    \input{Section1.tex}
+   
+    \input{Section2.tex}
+
+    \input{End.tex}
+\end{document}
