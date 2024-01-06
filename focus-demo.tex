@@ -24,6 +24,9 @@
 \placelogotrue % set it to true
 
 
+\newcommand{\foralll}[2]{\overset{{#2}}{\underset{{#1}}{\Large \forall}}}
+\newcommand{\existss}[2]{\overset{{#2}}{\underset{{#1}}{\Large \exists}}}
+
 \setbeamercovered{transparent}
 
 \title{Into the Quantum Realm:\\ On the Collapsible Polynomial Hierarchy for Promise Problems}
@@ -46,9 +49,12 @@
     
     % Use starred version (e.g. \section*{Section name})
     % to disable (sub)section page.
+    \input{Z-PolynomialTime-Hierarchy.tex}
+    \input{Z-PromiseProblems.tex}
     \input{Section1.tex}
+    \input{Z-PH of Promise.tex}
    
-    \input{Section2.tex}
+    % \input{Section2.tex}
 
     \input{End.tex}
 \end{document}

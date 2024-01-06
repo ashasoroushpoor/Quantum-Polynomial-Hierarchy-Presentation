@@ -1,0 +1,126 @@
+\section{Promise Problems}
+    \subsection{Introduction}
+        \begin{frame}{Oded Goldreich talk}
+            "How many of the readers have learned about promise problems in an undergraduate 'theory of computation' course or even in a graduate course on complexity theory?"\\
+            \pause 
+            "Scant few? And yet I contend that almost all readers refer to this notion when thinking about computational problems, although they may be often unaware of this fact.
+        \end{frame}
+        
+        \begin{frame}{review from formal Language theory}
+            \begin{block}{review}
+                A language $L$ over some alphabet $\Sigma$ is simply a subset of $\Sigma^*$. In the world of computer science, problems are often formalized with the corresponding language $L$ over $\{0,1\}^*$ using some interpretation (e.g. any graph can be converted to some string in $\{0,1\}^*$ uniquely). But are such interpretations bijective (e.g. does any string in $\{0,1\}^*$ represent a graph)?
+            \end{block}
+        \end{frame}
+    
+        \begin{frame}{example}
+            \begin{alertblock}{question}
+                What should the decider Turing machine do if the given string doesn't represent any instance of the problem? 
+            \end{alertblock}
+            \pause
+            \begin{exampleblock}{Example}
+                Consider any standard entry like “given a planar graph, determine whether or not ...”. A more formal statement will refer to strings that represent planar graphs. Either way, one may wonder what should the decision procedure do when the input is not a (string representing a) planar graph.
+            \end{exampleblock}
+        \end{frame}
+        
+        \begin{frame}{Approaches}
+            \begin{exampleblock}{first approach}
+                One common formalistic answer is that all strings are interpreted as representations of planar graphs (typically, by using a decoding convention by which every “non-canonical” representation is interpreted as a representation of some fixed planar graph).
+            \end{exampleblock}
+            \pause
+            \begin{exampleblock}{Second approach}
+                Another (even more) formalistic “solution” is to discuss the problem of distinguishing yes-instances from anything else (i.e., effectively viewing strings that violate the promise as no-instances).
+            \end{exampleblock}
+        \end{frame}
+        \begin{frame}{Approaches}
+            \begin{block}{Downsides of these conventions}
+                Both conventions miss the true nature of the original computational problem, which is concerned with distinguishing planar graphs of one type from planar graphs of another type (i.e., the complementary type).
+                Moreover, the complexity of the problem can be drastically affected
+                \footnote{Maybe this is one of the reasons that we often focus on polynomial-time procedures.}.
+                Consider a computational problem that, analogously to the one above, reads “Given a Hamiltonian graph, determine whether or not ...” Deciding whether a graph is Hamiltonian is NP-complete and doesn't seem to be tractable.
+             \end{block}
+        \end{frame}
+        
+        \begin{frame}{Promise problems, a natural approach}
+            \begin{block}{Definition: promise problems}
+                A promise problem $A$ is a pair of sets, denoted $(A_+,A_-)$, s.t.: $A_+, A_- \subseteq \{0,1\}^*$ and $A_+ \cap A_- = \emptyset$.\\
+                The set $A_+ \cup A_-$ is called the promise.            
+            \end{block}
+        \end{frame}
+    
+        \begin{frame}{Promise problems, a natural approach}
+            \begin{block}{Definition: Solving a promise problem}
+                A Turing machine $T$ solve the problem $A$ if:
+                \begin{itemize}
+                    \item $x \in A_+ \implies T$ $accepts$ $x$
+                    \item $x \in A_- \implies T$ $rejects$ $x$
+                \end{itemize}    
+            \end{block}
+            \pause
+            \begin{alertblock}{}
+                A solver machine $T$ can output anything outside of the promise, or even doesn't halt.
+            \end{alertblock}
+        \end{frame}
+        
+        \begin{frame}{Generalization of Languages}
+            \begin{block}{Promise problem corresponded to a language}
+                $A_+ := L$ \& $A_-:= \bar{L}$
+            \end{block}
+            \pause
+            \begin{block}{proposition}
+                $T$ decides $(A_+,A_-) \iff T$ decides $L$.
+            \end{block}
+        \end{frame}
+
+        \begin{frame}{Fits more concepts}
+            \begin{block}{Definition: being a special case of another problem}
+                Problem $A$ is a special case of problem $B$ if:
+                $$A_+ \subseteq B_+ \text{ \& } A_- \subseteq B_-$$
+            \end{block}    
+            \pause
+            \begin{block}{proposition}
+                $T$ solves $A$ and $B$ is a special case of $A \implies T$ solves
+                $B$.
+            \end{block}
+        \end{frame}
+        
+    \subsection{Technical Applications}
+        \begin{frame}{complete problems for $BPP$?}
+            \begin{block}{Review: BPP}
+                $L \in BPP \iff $ there is a polynomial $p$ and a polynomial-time randomized algorithm (predicate) $F$ s.t.:
+                $$x \in L \implies \underset{r\in \{0,1\}^{p(|x|)}}{Pr}(F(x,r)) \geq 2/3$$
+                $$x \notin L \implies \underset{r\in \{0,1\}^{p(|x|)}}{Pr}\ (F(x,r)) \leq 1/3$$
+            \end{block}
+            \pause
+            \begin{block}{Fact}   
+                $BPP$ is not likely to have any complete problems.
+            \end{block}
+        \end{frame}
+        \begin{frame}{complete problems for $Promise-BPP$}
+            \begin{block}{Definition: $Promise-BPP$}
+                $L \in Promise-BPP \iff $ there is a polynomial $p$ and a polynomial-time randomized algorithm (predicate) $F$ s.t.:
+                $$x \in L_+ \implies \underset{r\in \{0,1\}^{p(|x|)}}{Pr}(F(x,r)) \geq 2/3$$
+                $$x \in L_- \implies \underset{r\in \{0,1\}^{p(|x|)}}{Pr}\ (F(x,r)) \leq 1/3$$
+            \end{block}
+            \pause
+        \end{frame}
+        
+        \begin{frame}{complete problems for $Promise-BPP$}
+            \begin{block}{Fact}
+                A complete for $Promise-BPP$:\\
+                $(M,x,1^p) \implies \Pi_+ =\{M$ $is$ $a$ $probabilistic$ $machine$ $that$ $accepts$ $x$
+                
+                \hfill $with$ $probability$ $at$ $least$ $2/3$ $in$ $p$ $steps\}$
+
+                $(M,x,1^p) \implies \Pi_- =\{M$ $is$ $a$ $probabilistic$ $machine$ $that$ $rejects$ $x$
+                
+                \hspace{100pt} $with$ $probability$ $at$ $least$ $2/3$ $in$ $p$ $steps\}$
+            \end{block}
+            \pause
+            \begin{alertblock}{Alert}
+                The definition of polynomial-time reduction should be revised for the promise version of the problems
+            \end{alertblock}
+        \end{frame}
+        
+        \begin{frame}{Application in quantum computing}
+            \huge{Enjoy the next section...}
+        \end{frame}

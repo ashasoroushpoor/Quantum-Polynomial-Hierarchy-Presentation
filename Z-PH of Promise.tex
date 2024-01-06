@@ -1,0 +1,112 @@
+\section{Polynomial-time Hierarchy for Promise Problems}
+    \subsection{Generalizing the polynomial-time hierarchy}
+        \begin{frame}{Basic definitions and properties}
+            \begin{block}{Complement of a promise problems}
+                $\bar{A} := (A_-,A_+)$
+            \end{block}
+            \pause
+            \begin{block}{Elementwise complement of a class of promise problems}
+                $co(\mathcal{C}) := \{\bar{A}| A\in \mathcal{C}\}$
+            \end{block}
+            \pause
+            \begin{block}{Properties}
+                \begin{enumerate}
+                    \item $co(co(\mathcal{C})) = \mathcal{C}$
+                    \item $co(\mathcal{C}) = co(\mathcal{C}') \iff \mathcal{C} = \mathcal{C}'$
+                \end{enumerate}
+            \end{block}
+        \end{frame}
+        \begin{frame}{Basic definitions and properties}
+            \begin{block}{Existential quantifier}
+                Let $\mathcal{C}$ be a class of promise problems. Then $L \in \exists \mathcal{C}$ if there is a problem $A$ in $\mathcal{C}$ and a polynomial $p$ such that:
+                $$x\in L_+ \iff \existss{y \in \{0,1\}^{p(x)}}{} <x,y> \in A_+$$
+                $$x\in L_- \iff \foralll{y \in \{0,1\}^{p(x)}}{} <x,y> \in A_-$$
+            \end{block}
+        \end{frame}
+        \begin{frame}{Basic definitions and properties}
+            \begin{block}{Universal quantifier}
+                Let $\mathcal{C}$ be a class of promise problems. Then $L \in \exists \mathcal{C}$ if there is a problem $A$ in $\mathcal{C}$ and a polynomial $p$ such that:
+                $$x\in L_+ \iff \foralll{y \in \{0,1\}^{p(x)}}{} <x,y> \in A_+$$
+                $$x\in L_- \iff \existss{y \in \{0,1\}^{p(x)}}{} <x,y> \in A_-$$
+            \end{block}
+        \end{frame}
+        \begin{frame}{Properties of Quantifiers}
+            \begin{enumerate}
+                \item $\mathcal{C} \subseteq \exists{\mathcal{C}}$
+                \item $\mathcal{C} \subseteq \forall{\mathcal{C}}$
+                \pause
+                \item $co(\exists \mathcal{C}) = \forall co(\mathcal{C})$
+                \pause
+                \item $\exists \exists \mathcal{C} = \exists{\mathcal{C}}$
+                \item $\forall \forall \mathcal{C} = \forall{\mathcal{C}}$
+                \pause
+                \item $\mathcal{C} = \mathcal{C}' \implies \exists{\mathcal{C}} = \exists{\mathcal{C}}'$
+                \item $\mathcal{C} = \mathcal{C}' \implies \forall{\mathcal{C}} = \forall{\mathcal{C}}'$
+            \end{enumerate}
+        \end{frame}
+        \begin{frame}{Hierarchy of promise classes}
+            \begin{block}{A Collapsible Polynomial Hierarchy for promise class $\mathcal{C}$}
+                $\Sigma_0 := \exists \mathcal{C}$ and
+                $\Pi_0 := \forall \mathcal{C}$\\
+                For $k \geq 1 $:
+                    $$\Sigma_k := \exists\Pi_{k-1} \text{ and }
+                    \Pi_k := \forall\Sigma_{k-1}$$
+                $\mathcal{H}_{\mathcal{C}} := \bigcup\limits_{i \in \mathbb{N}} \Sigma_i \cup \Pi_i$
+                
+            \end{block}
+        \end{frame}
+
+        \begin{frame}{Scheme of the Polynomial Hierarchy for promise class $\mathcal{C}$}            
+            \begin{figure}
+                \centering
+                \includegraphics{focus-logo.pdf}
+                \caption{Figure caption.}
+                \label{fig:focuslogo}
+            \end{figure}
+        \end{frame}
+        
+        \begin{frame}{Conditional Collapse of $\mathcal{H}_{\mathcal{C}}$}
+            \begin{lemma}{conditional collapse}
+                $k \geq 1 \text{ \& } \Sigma_k = \Pi_k \to \mathcal{H}_{\mathcal{C}} = \Sigma_k$
+            \end{lemma}
+            \pause
+            \begin{block}{Proof}
+                It suffices to show that 
+                $k \geq 1 \text{ $\&$ } \Sigma_k = \Pi_k 
+                \to \Sigma_k = \Sigma_{k+1}$...
+            \end{block}
+        \end{frame}
+
+        \begin{frame}{Conditional Collapse of $\mathcal{H}_{\mathcal{C}}$}
+            \begin{lemma}{conditional collapse}
+                $k \geq 1 
+                \text{ \& } 
+                \Sigma_k = \Pi_k \to \mathcal{H}_{\mathcal{C}} = \Sigma_k$
+            \end{lemma}
+            \begin{block}{Proof}
+                It suffices to show that 
+                $k \geq 1 
+                \text{ $\&$ } 
+                \Sigma_k = \Pi_k 
+                \to \Sigma_k = \Sigma_{k+1}$:\\
+                $L \in \Sigma_{k+1} \iff L \in \exists \Pi_k \iff L \in \exists \Sigma_k \iff L 
+                \in \exists \exists \Pi_{k-1} \iff L \in \exists \Pi_{k-1} \iff  L \in \Sigma_k$
+            \end{block}
+        \end{frame}
+        
+    \subsection{Applications}
+        \begin{frame}{Applications}
+            \begin{exampleblock}{Application to Quantum computing}
+                $\mathcal{H}_{Promise-BQP}$ is a collapsible hierarchy for classifying quantum complexity classes, which was proposed by \cite{Gharibian}.  However, the authors of this work were unable to show that their quantum polynomial hierarchy has the property of ‘collapsing’ whenever two distinct levels are equal, because of difficulties arising from the use of promise problems.
+            \end{exampleblock}
+        \end{frame}
+        
+        \begin{frame}{Conclusion}
+            \begin{block}{Conclusion}
+                The collapsibility of $\mathcal{H}_{\mathcal{C}}$ and the fact that $\mathcal{C}$ 
+                can be arbitrarily chosen, gives us a powerful tool to generalize polynomial hierarchy for 
+                the new collections of complexity classes that emerged in the world of computer science in 
+                recent years.
+            \end{block}
+        \end{frame}
+
