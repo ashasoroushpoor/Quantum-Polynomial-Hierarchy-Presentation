@@ -1,7 +1,7 @@
 \section{The Polynomial-time Hierarchy}
     \subsection{Basic definitions and properties}
         \begin{frame}{Definitions}
-            \begin{block}{Definition: $\Sigma_k$}
+            \begin{block}{Definition: $\Sigma_k^P$}
                 $ \Sigma_0^P := P$\\
                 For $k\geq 1:$ \\
                 $L \in \Sigma_k^P \iff $ there are polynomials $p_1, p_2,..., p_k$ and a polynomial-time predicate $F$ s.t.:
@@ -13,7 +13,7 @@
             \end{block}
         \end{frame}
         \begin{frame}{Definitions}
-            \begin{block}{Definition: $\Pi_k$}
+            \begin{block}{Definition: $\Pi_k^P$}
                 $ \Pi_0^P := P$\\
                 For $k\geq 1:$ \\
                 $L \in \Pi_k^P \iff $ there are polynomials $p_1, p_2,..., p_k$ and a polynomial-time predicate $F$ s.t.:
@@ -50,7 +50,7 @@
                 $$x \in L \leftrightarrow \existss{y\in \{0,1\}^{p(|x|)}}{} <x,y> \in A$$
             \end{block}
             \pause
-            \begin{block}{Proof...}
+            \begin{block}{Proof}
                 $<x,y> \in A \leftrightarrow \foralll{y_1 \in S_1\text{ }}{}
                     \existss{y_2 \in S_2\text{ }}{}
                     \forall ...\underset{y_k \in S_k}{Q} F(<x,y>,y_1,...,y_k)$\\
@@ -93,7 +93,7 @@
             \begin{figure}
                 \centering
                 \includegraphics[scale=.4]{images/PH.png}
-                \caption{The polynomial-time Hierarchy.}
+                \caption{The Polynomial-time Hierarchy.}
                 \label{fig:The Polynomial-time Hierarchy}
             \end{figure}
         \end{frame}
@@ -224,8 +224,8 @@
         \begin{frame}{Complexity classes}            
             \begin{figure}
                 \centering
-                \includegraphics{focus-logo.pdf}
-                \caption{Figure caption.}
+                \includegraphics[scale=0.5]{images/PH2.png}
+                \caption{Complexity Classes Inclusion Tree}
                 \label{fig:focuslogo}
             \end{figure}
         \end{frame}

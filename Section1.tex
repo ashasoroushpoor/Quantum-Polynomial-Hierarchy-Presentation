@@ -43,7 +43,7 @@
     
     \begin{frame}{Qubits and data representation}
         \begin{itemize}
-            \item We represent Superposition of data with a vector in complex space with a length of 1.
+            \item We represent the Superposition of data with a vector in complex space with length of 1.
             \item We represent the value of the vector with the unit basis of our space.
             \item For the purpose of this lecture we follow the traditional representation by Qubits:
                 \begin{itemize}
@@ -104,7 +104,7 @@
         \end{bmatrix}$\\
     \end{center}
     it maps $|00\rangle \rightarrow |00\rangle$ , $|01\rangle \rightarrow |01\rangle$
-    $|10\rangle \rightarrow |11\rangle$, $|11\rangle \rightarrow |10\rangle$. in other language
+    $|10\rangle \rightarrow |11\rangle$ {,} $|11\rangle \rightarrow |10\rangle$. in other language
     it performs not on the second bit iff the first bit is true or it maps $|xy\rangle \rightarrow |x(x\oplus y)\rangle$
 
     \end{frame}
@@ -126,7 +126,7 @@
     \end{frame}
     \begin{frame}{Measurement}
         \begin{block}{Quantum state}
-            A quantum state is a n-dimensional complex vector with the length of 1. 
+            A quantum state is an n-dimensional complex vector with the length of 1. 
         \end{block}
         \pause
         \begin{block}{Quantum basis state}
@@ -322,12 +322,12 @@
     % \begin{frame}[t]
     \begin{frame}{Reminder}
         \begin{block}{P}
-            P is the class of languages $L \subset \{0,1\}^*$ for which there exists a Turing machine M and a polynomial q
+            P is the class of languages $L \subseteq \{0,1\}^*$ for which there exists a Turing machine M and a polynomial q
             so that for inputs $x \in \{0,1\}^n$, M Terminates in at most $q(n)$ steps and accepts iff $x \in L$
         \end{block}
         \pause
         \begin{block}{PSPACE}
-            PSPACE is defined like P except we're limited by $q(n)$ steps, rather than time.
+            PSPACE is defined like P except we're limited by $q(n)$ tape cells, rather than time.
         \end{block}
         \pause
         \begin{block}{EXP}
@@ -337,7 +337,7 @@
     \end{frame}
     \begin{frame}{Reminder}
         \begin{block}{BPP}
-            P is the class of languages $L \subset \{0,1\}^*$ for which there exists a Turing machine \textbf{probabilistic} M and a polynomial q
+            P is the class of languages $L \subseteq \{0,1\}^*$ for which there exists a Turing machine \textbf{probabilistic} M and a polynomial q
             so that for inputs $x \in \{0,1\}^n$, M Terminates in at most $q(n)$ steps and
             \begin{itemize}
                 \item if $x \in L$, then M accepts with probability $> \sfrac{2}{3}$
@@ -357,7 +357,7 @@
     \end{frame}
     \begin{frame}{BQP}
         \begin{block}{Definition}
-            BQP is the class of languages  $L \subset \{0,1\}^*$ for which there exists a \emph{uniform}
+            BQP is the class of languages  $L \subseteq \{0,1\}^*$ for which there exists a \emph{uniform}
             family of polynomial-size quantum circuit $\{C_n\}$ over some basis of universal gates and a polynomial q
             so that for all n and inputs $x \in \{0,1\}^n$.
             \begin{itemize}
@@ -373,17 +373,17 @@
     \end{frame}
     \setbeamercovered{invisible}
     \begin{frame}{BQP properties}
-        \begin{block}{$P \subset BPP$}
+        \begin{block}{$P \subseteq BPP$}
             \pause
             Just don't use randomness
         \end{block}
         \pause
-        \begin{block}{$BPP \subset PSPACE$}
+        \begin{block}{$BPP \subseteq PSPACE$}
             \pause
             Run the problem for each possible r and keep count of how many are accepted.
         \end{block}
         \pause
-        \begin{block}{$PSPACE \subset EXP$}
+        \begin{block}{$PSPACE \subseteq EXP$}
             \pause
             Polynomial space can go through exponentially many configurations without looping.
         \end{block}
@@ -502,7 +502,7 @@ S approximates U to operator norm error.
         We have already discussed how proving complexity lower bounds on quantum 
         computation seems very difficult. Just as with classical complexity, then, we turn to simplified, 
         idealized models of computation in the hopes of proving something and gaining intuitions. 
-        We try to model, in the quantum world, the classical idea of a \'bounded-query\' algorithm, 
+        We try to model, in the quantum world, the classical idea of a 'bounded-query' algorithm, 
         one which has access to a very large (binary) input and tries to compute some predicate of the input 
         without looking at too many input bits. We think of this input as a function $f(x): \{0,1\}^n \rightarrow \{0,1\}$.
     \end{frame}
