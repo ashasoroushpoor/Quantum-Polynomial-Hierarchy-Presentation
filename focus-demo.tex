@@ -13,6 +13,8 @@
 \usepackage{xfrac}
 \usepackage{mathdots}
 \usepackage{nccmath}
+\usepackage{algpseudocode}
+
 \usetheme{focus}
 
 
@@ -27,11 +29,15 @@
 
 \newcommand{\foralll}[2]{\overset{{#2}}{\underset{{#1}}{\Large \forall}}}
 \newcommand{\existss}[2]{\overset{{#2}}{\underset{{#1}}{\Large \exists}}}
+\newcommand{\orr}[2]{\overset{{#2}}{\underset{{#1}}{\Large \lor}}}
+\newcommand{\andd}[2]{\overset{{#2}}{\underset{{#1}}{\Large \land}}}
+
+
 
 \setbeamercovered{transparent}
 
 \title{Into the Quantum Realm:\\ On the Collapsible Polynomial Hierarchy for Promise Problems}
-\subtitle{Advance Algorithm Course}
+\subtitle{Advanced Algorithm Course}
 \author{Abolfazl Ghorbani\texorpdfstring{\\}{,} Asha Soroushpoor}
 % \titlegraphic{\includegraphics[scale=1.25]{focus-logo.pdf}}
 \titlegraphic{\includegraphics[scale=.21]{images/tu-logo-hckd2.png}}
@@ -47,7 +53,6 @@
 \begin{document}
     \input{Beginning.tex}
     
-    
     % Use starred version (e.g. \section*{Section name})
     % to disable (sub)section page.
     \input{Z-PolynomialTime-Hierarchy.tex}
@@ -55,7 +60,5 @@
     \input{Section1.tex}
     \input{Z-PH of Promise.tex}
    
-    % \input{Section2.tex}
-
     \input{End.tex}
 \end{document}

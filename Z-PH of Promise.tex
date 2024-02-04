@@ -1,6 +1,5 @@
 \section{Polynomial-time Hierarchy for Promise Problems}
     \subsection{Generalizing the polynomial-time hierarchy}
-    
         \begin{frame}{Basic definitions and properties}
             \begin{block}{Complement of a promise problems}
                 $\bar{A} := (A_-,A_+)$
@@ -20,15 +19,15 @@
         \begin{frame}{Basic definitions and properties}
             \begin{block}{Existential quantifier}
                 Let $\mathcal{C}$ be a class of promise problems. Then $L \in \exists \mathcal{C}$ if there is a problem $A$ in $\mathcal{C}$ and a polynomial $p$ such that:
-                $$x\in L_+ \iff \existss{y \in \{0,1\}^{p(x)}}{} <x,y> \in A_+$$
-                $$x\in L_- \iff \foralll{y \in \{0,1\}^{p(x)}}{} <x,y> \in A_-$$
+                $$x\in L_+ \iff \existss{y \in \{0,1\}^{p(|x|)}}{} <x,y> \in A_+$$
+                $$x\in L_- \iff \foralll{y \in \{0,1\}^{p(|x|)}}{} <x,y> \in A_-$$
             \end{block}
         \end{frame}
         \begin{frame}{Basic definitions and properties}
             \begin{block}{Universal quantifier}
                 Let $\mathcal{C}$ be a class of promise problems. Then $L \in \forall \mathcal{C}$ if there is a problem $A$ in $\mathcal{C}$ and a polynomial $p$ such that:
-                $$x\in L_+ \iff \foralll{y \in \{0,1\}^{p(x)}}{} <x,y> \in A_+$$
-                $$x\in L_- \iff \existss{y \in \{0,1\}^{p(x)}}{} <x,y> \in A_-$$
+                $$x\in L_+ \iff \foralll{y \in \{0,1\}^{p(|x|)}}{} <x,y> \in A_+$$
+                $$x\in L_- \iff \existss{y \in \{0,1\}^{p(|x|)}}{} <x,y> \in A_-$$
             \end{block}
         \end{frame}
         \begin{frame}{Properties of Quantifiers}
@@ -41,8 +40,8 @@
                 \item $\exists \exists \mathcal{C} = \exists{\mathcal{C}}$
                 \item $\forall \forall \mathcal{C} = \forall{\mathcal{C}}$
                 \pause
-                \item $\mathcal{C} = \mathcal{C}' \implies \exists{\mathcal{C}} = \exists{\mathcal{C}}'$
-                \item $\mathcal{C} = \mathcal{C}' \implies \forall{\mathcal{C}} = \forall{\mathcal{C}}'$
+                \item $\mathcal{C} \subseteq \mathcal{C}' \implies \exists{\mathcal{C}} \subseteq \exists{\mathcal{C}}'$
+                \item $\mathcal{C} \subseteq \mathcal{C}' \implies \forall{\mathcal{C}} \subseteq \forall{\mathcal{C}}'$
             \end{enumerate}
         \end{frame}
         \begin{frame}{Hierarchy of promise classes}
